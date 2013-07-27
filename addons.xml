@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="plugin.video.sdarot.tv" name="Sdarot.tv Video" version="2.11" provider-name="scubicle">
+    <requires>
+        <import addon="xbmc.python" version="2.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="sdarottv.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <minversion>31632</minversion>
+        <summary lang="en">Watch Sdarot.tv video contents.</summary>
+        <summary lang="he">סדרות מתוך האתר sdarot.tv</summary>
+        <description lang="en">Watch the many TV series available on sdarot.tv</description>
+        <description lang="he">צפיה בסדרות (הרבות) שיש באתר sdarot.tv</description>
+        <disclaimer>This addon parsees their website, you should check their TOS before you using. It's as is</disclaimer>
+        <supportedcontent>
+          <content>tvshows</content>
+        </supportedcontent>
+    </extension>
+  <extension point="xbmc.addon.repository"
+              name="My Repo Shay">
+    <info compressed="true">https://github.com/yossimav123/XbmcPlugins/blob/master/addons.xml</info>
+    <checksum>https://github.com/yossimav123/XbmcPlugins/blob/master/addons.xml.md5</checksum>
+    <datadir zip="true">https://github.com/yossimav123/XbmcPlugins/archive/master.zip</datadir>
+  </extension>
+</addon>
+</addons>

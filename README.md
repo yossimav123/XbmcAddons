@@ -1,0 +1,4 @@
+XbmcAddons
+==========
+
+Replaces the XbmcPlugin

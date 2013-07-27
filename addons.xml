@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.sdarot.tv" name="Sdarot.tv Video" version="2.11" provider-name="scubicle">
+<addon id="plugin.video.sdarot.tv" name="Sdarot.tv Video" version="2.12" provider-name="scubicle">
     <requires>
         <import addon="xbmc.python" version="2.0"/>
     </requires>

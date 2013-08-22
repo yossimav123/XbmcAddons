@@ -24,6 +24,7 @@
  
 import os
 import sys
+import zipfile
  
 # Compatibility with 3.0, 3.1 and 3.2 not supporting u"" literals
 if sys.version < '3':
@@ -57,6 +58,8 @@ class Generator:
             try:
                 # skip any file or .svn folder or .git folder
                 if ( not os.path.isdir( addon ) or addon == ".svn" or addon == ".git" ): continue
+                if ( addon == "repo"): continue
+                if ( addon == "repository.shay"): continue
                 # create path
                 _path = os.path.join( addon, "addon.xml" )
                 # split lines for stripping
@@ -74,6 +77,12 @@ class Generator:
                         addon_xml += line.rstrip() + "\n"
                 # we succeeded so add to our final addons.xml text
                 addons_xml += addon_xml.rstrip() + "\n\n"
+                # create zip file in repo
+                new_dir = os.path.join('repo',addon)
+                print os.path.join(new_dir,addon+'.zip')
+                if (not(os.path.isdir(new_dir))):
+                    os.mkdir(new_dir)
+                self._zipdir(addon,os.path.join(new_dir,addon+'.zip'))
             except Exception as e:
                 # missing or poorly formatted addon.xml
                 print("Excluding %s for %s" % ( _path, e ))
@@ -105,8 +114,20 @@ class Generator:
         except Exception as e:
             # oops
             print("An error occurred saving %s file!\n%s" % ( file, e ))
- 
+
+    def _zipdir(self,path,name):
+        zip = zipfile.ZipFile(name, 'w')
+        self._pzipdir(path, zip)
+        zip.close()
+
+    def _pzipdir(self,path, zip):
+        for root, dirs, files in os.walk(path):
+            for file in files:
+                zip.write(os.path.join(root, file))
+
+
  
 if ( __name__ == "__main__" ):
     # start
     Generator()
+

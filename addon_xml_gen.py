@@ -59,7 +59,7 @@ class Generator:
                 # skip any file or .svn folder or .git folder
                 if ( not os.path.isdir( addon ) or addon == ".svn" or addon == ".git" ): continue
                 if ( addon == "repo"): continue
-                if ( addon == "repository.shay"): continue
+                #if ( addon == "repository.shay"): continue
                 # create path
                 _path = os.path.join( addon, "addon.xml" )
                 # split lines for stripping
@@ -78,7 +78,7 @@ class Generator:
                 # we succeeded so add to our final addons.xml text
                 addons_xml += addon_xml.rstrip() + "\n\n"
                 # create zip file in repo
-                new_dir = os.path.join('repository.shay',addon)
+                new_dir = os.path.join('repo',addon)
                 print os.path.join(new_dir,addon+'.zip')
                 if (not(os.path.isdir(new_dir))):
                     os.mkdir(new_dir)

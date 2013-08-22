@@ -22,7 +22,7 @@
 <extension point="xbmc.addon.repository" name="XBMC Israeli streaming repo for streaming sites">
         <info compressed="false">https://github.com/yossimav123/XbmcAddons/raw/master/addons.xml</info>
         <checksum>https://github.com/yossimav123/XbmcAddons/raw/master/addons.xml.md5</checksum>
-        <datadir zip="true">https://github.com/yossimav123/XbmcAddons/raw/master/repo</datadir>
+        <datadir zip="true">https://github.com/yossimav123/XbmcAddons/raw/master</datadir>
     </extension>
 </addon>
 
@@ -49,7 +49,20 @@
               name="Sdarot.tv Video">
         <info compressed="false">https://github.com/yossimav123/XbmcAddons/raw/master/addons.xml</info>
         <checksum>https://github.com/yossimav123/XbmcAddons/raw/master/addons.xml.md5</checksum>
-        <datadir zip="true">https://github.com/yossimav123/XbmcAddons/raw/master/repo</datadir>
+        <datadir zip="true">https://github.com/yossimav123/XbmcAddons/raw/master</datadir>
   </extension>
+</addon>
+
+<addon id="repository.shay" name="Shay Addons" version="1.0.1" provider-name="shay">
+    <extension point="xbmc.addon.repository" name="XBMC Shay Addons">
+        <info compressed="false">https://github.com/yossimav123/XbmcAddons/raw/master/addons.xml</info>
+        <checksum>https://github.com/yossimav123/XbmcAddons/raw/master/addons.xml.md5</checksum>
+        <datadir zip="true">https://github.com/cubicle-vdo/xbmc-israel/raw/master/repo</datadir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>XBMC Shay Addons</summary>
+        <description>Download and install addons for XBMC </description>
+        <platform>all</platform>
+    </extension>
 </addon>
 </addons>

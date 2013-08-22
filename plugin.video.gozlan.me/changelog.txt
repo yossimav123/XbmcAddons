@@ -1,9 +1,0 @@
-[B]Version 1.2.0[/B]
-- Shay's version
-[B]Version 1.0.2[/B]
-- Small change due to a website HTML update
-[B]Version 1.0.1[/B]
-- Added support for VideoSlasher
-- Fixed MovieX-IL dependency issue
-[B]Version 1.0.0[/B]
-- Initial release

@@ -22,6 +22,6 @@
               name="Sdarot.tv Video">
         <info compressed="false">https://github.com/yossimav123/XbmcAddons/raw/master/addons.xml</info>
         <checksum>https://github.com/yossimav123/XbmcAddons/raw/master/addons.xml.md5</checksum>
-        <datadir zip="true">https://github.com/yossimav123/XbmcAddons/raw/master/repo</datadir>
+        <datadir zip="true">https://github.com/yossimav123/XbmcAddons/raw/master</datadir>
   </extension>
 </addon>

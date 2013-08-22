@@ -78,7 +78,7 @@ class Generator:
                 # we succeeded so add to our final addons.xml text
                 addons_xml += addon_xml.rstrip() + "\n\n"
                 # create zip file in repo
-                new_dir = os.path.join('repo',addon)
+                new_dir = os.path.join('repository.shay',addon)
                 print os.path.join(new_dir,addon+'.zip')
                 if (not(os.path.isdir(new_dir))):
                     os.mkdir(new_dir)

@@ -1,0 +1,4 @@
+1. update files and test it
+2. upgrade version number in addon.xml file for the updated plugin.
+3. run 'addon_xml_gen.py'
+4. update github repo

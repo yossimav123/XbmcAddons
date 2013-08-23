@@ -72,17 +72,17 @@ class Generator:
                     if ( line.find( "<?xml" ) >= 0 ): continue
                     # add line
                     if sys.version < '3':
-                        addon_xml += unicode( line.rstrip() + "\n", "UTF-8" )
+                        addon_xml += unicode( line.rstrip() + "\r\n", "UTF-8" )
                     else:
-                        addon_xml += line.rstrip() + "\n"
+                        addon_xml += line.rstrip() + "\r\n"
                 # we succeeded so add to our final addons.xml text
-                addons_xml += addon_xml.rstrip() + "\n\n"
+                addons_xml += addon_xml.rstrip() + "\r\n\r\n"
                 # create zip file in repo
                 new_dir = os.path.join('repo',addon)
                 print os.path.join(new_dir,addon+'.zip')
                 if (not(os.path.isdir(new_dir))):
                     os.mkdir(new_dir)
-                self._zipdir(addon,os.path.join(new_dir,addon+'.zip'))
+                #self._zipdir(addon,os.path.join(new_dir,addon+'.zip'))
             except Exception as e:
                 # missing or poorly formatted addon.xml
                 print("Excluding %s for %s" % ( _path, e ))

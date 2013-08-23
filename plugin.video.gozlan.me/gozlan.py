@@ -96,7 +96,9 @@ def gozlan_series(url):
       icon=match[1]
       name=match[2]
       # print "series_page="+series_page+"; icon="+icon+"; name="+str(name)
-      addDir(name ,base_domain+"/"+series_page,'6&icon='+urllib.quote(icon),icon)
+      if ((series_page.find('http'))<0):
+        series_page = base_domain+'/'+series_page
+      addDir(name ,series_page,'6&icon='+urllib.quote(icon),icon)
   xbmcplugin.setContent(int(sys.argv[1]), 'tvshows')
 
 def gozlan_series_seasons(url):
@@ -114,7 +116,9 @@ def gozlan_series_seasons(url):
       season_page="search.html?s="+urllib.quote(match)
       name=match
       #print "season_page="+season_page+"; icon="+icon+"; name="+str(name)
-      addDir(name ,base_domain+"/"+season_page,'1&icon='+urllib.quote(icon),icon)
+      if ((season_page.find('http'))<0):
+        season_page = base_domain+"/"+season_page
+      addDir(name ,season_page,'1&icon='+urllib.quote(icon),icon)
   xbmcplugin.setContent(int(sys.argv[1]), 'tvshows')
   
   
@@ -160,7 +164,7 @@ def gozlan_search_page(url):
     next_page_matches = re.compile(next_page_regexp).findall(page)
     if (len(next_page_matches) > 0):
       next_page_url=base_domain+ su.unescape(next_page_matches[0])
-      #print "\nNext Page: "+next_page_url+" (matches="+next_page_matches[0]+")\n"
+      print "\nNext Page: "+next_page_url+" (matches="+next_page_matches[0]+")\n"
       addDir("עוד...",next_page_url,"1&conetnt="+urllib.quote(content)+"&page_no="+next_page_no,'')
     else:
       print "No next page. URL=" + url + ";regexp=" + next_page_regexp + "\n"
@@ -176,8 +180,11 @@ def gozlan_play_video(url):
     description=""
     if "description" in params:  
       description=params["description"]
+    print url
+    if ((url.find(base_domain))<0):
+        url = base_domain+'/'+url
+    page=getData(url,7)
 
-    page=getData(base_domain+'/'+url,7)
     # <iframe src="http://www.putlocker.com/embed/F4988CE321910D0D" id='iframeinner'
     regexp='<iframe src="(.*?)" id=\'iframeinner\''
     media_url=re.compile(regexp,re.M+re.I+re.S).findall(page)[0]
@@ -278,8 +285,9 @@ def gozlan_download(url, params):
     imdbref=params["imdbref"]
     #print "params="+str(params)
     # xbmcgui.Dialog().ok("Params" , str(params))
-    
-    page=getData(base_domain+"/"+url,7)
+    if (url.find('http')<0):
+            url = base_domain+"/"+url
+    page=getData(url,7)
     # <iframe src="http://www.putlocker.com/embed/F4988CE321910D0D" id='iframeinner'
     regexp='<iframe src="(.*?)" id=\'iframeinner\''
     media_url=re.compile(regexp,re.M+re.I+re.S).findall(page)[0]

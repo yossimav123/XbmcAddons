@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="plugin.video.gozlan.me" name="gozlan.me" version="1.2.1" provider-name="cubicle_s">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="gozlan.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+
+        <summary lang="en">Watch video from gozlan.me</summary>
+        <summary lang="he">צפו בוידאו מהאתר gozlan.me</summary>
+        <description lang="en">Watch video from gozlan.me</description>
+        <description lang="he">צפו בוידאו מהאתר gozlan.me</description>
+        <disclaimer>הנך כפוף לתנאי השימוש של האתר</disclaimer>
+        <supportedcontent>
+          <content>tvshows</content>
+        </supportedcontent>
+    </addon>
+
+<addon id="plugin.video.sdarot.tv" name="Sdarot.tv Video" version="2.12" provider-name="scubicle">
+    <requires>
+        <import addon="xbmc.python" version="2.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="sdarottv.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <minversion>31632</minversion>
+        <summary lang="en">Watch Sdarot.tv video contents.</summary>
+        <summary lang="he">סדרות מתוך האתר sdarot.tv</summary>
+        <description lang="en">Watch the many TV series available on sdarot.tv</description>
+        <description lang="he">צפיה בסדרות (הרבות) שיש באתר sdarot.tv</description>
+        <disclaimer>This addon parsees their website, you should check their TOS before you using. It's as is</disclaimer>
+        <supportedcontent>
+          <content>tvshows</content>
+        </supportedcontent>
+    </extension>
+</addon>
+
+<addon id="repository.shay" name="Shay Addons" version="1.0.2" provider-name="shay">
+    <extension point="xbmc.addon.repository" name="XBMC Shay Addons">
+        <info compressed="false">https://github.com/yossimav123/XbmcAddons/raw/master/addons.xml</info>
+        <checksum>https://github.com/yossimav123/XbmcAddons/raw/master/addons.xml.md5</checksum>
+        <datadir zip="true">https://github.com/yossimav123/XbmcAddons/raw/master/repo</datadir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>XBMC Shay Addons</summary>
+        <description>Download and install addons for XBMC </description>
+        <platform>all</platform>
+    </extension>
+</addon>
+</addons>

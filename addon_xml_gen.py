@@ -25,6 +25,7 @@
 import os
 import sys
 import zipfile
+import re
  
 # Compatibility with 3.0, 3.1 and 3.2 not supporting u"" literals
 if sys.version < '3':
@@ -70,6 +71,12 @@ class Generator:
                 for line in xml_lines:
                     # skip encoding format line
                     if ( line.find( "<?xml" ) >= 0 ): continue
+                    # find version
+                    if ( line.find("version") ):
+                        version_number_tmp = re.findall('<addon[^>]*?version="([\w\.]*?)"',line.rstrip())
+                        if (len(version_number_tmp)>0):
+                            version_number = version_number_tmp[0]
+                            print version_number
                     # add line
                     if sys.version < '3':
                         addon_xml += unicode( line.rstrip() + "\r\n", "UTF-8" )
@@ -82,7 +89,7 @@ class Generator:
                 print os.path.join(new_dir,addon+'.zip')
                 if (not(os.path.isdir(new_dir))):
                     os.mkdir(new_dir)
-                #self._zipdir(addon,os.path.join(new_dir,addon+'.zip'))
+                self._zipdir(addon,os.path.join(new_dir,addon+'-'+version_number+'.zip'))
             except Exception as e:
                 # missing or poorly formatted addon.xml
                 print("Excluding %s for %s" % ( _path, e ))

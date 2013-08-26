@@ -23,7 +23,7 @@ def CATEGORIES():
     topMenuBloc = re.compile('<nav class="fc main-nav"(.*?)</nav>').findall(page)
     bottomGroupBloc = re.compile('<nav class="fc footer-logos".*?</nav>').findall(page)
     
-    items = re.compile('<li class=""><a href="(.*?)".*?<span>(.*?)</span>').findall(topMenuBloc[0])
+    items = re.compile('<li><a href="(.*?)">(.*?)<').findall(topMenuBloc[0])
     i = 1
     for url, title in items:
         if i >= 4: 
@@ -40,7 +40,7 @@ def CATEGORIES():
             elementId = re.compile("http://(.*?)\.").findall(url)
             addDir('UTF-8', title, url, 1, iconImage, elementId[0])     
         else :
-            elementId = re.compile("channel/(.*?)/").findall(url)
+            elementId = url #re.compile("channel/(.*?)/").findall(url)
             addDir('UTF-8', title, 'http://vod.walla.co.il' + url, 1, iconImage, elementId[0])
         
             
@@ -74,7 +74,7 @@ try:
 except:
         pass
     
-if mode==None or url==None or len(url)<1:
+if mode==None or url==None or len(url)<1 or module==None:
         CATEGORIES()
 
 else:

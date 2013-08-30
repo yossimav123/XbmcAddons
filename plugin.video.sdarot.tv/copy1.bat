@@ -1,1 +1,0 @@
-copy "E:\Development\Python\Github\XbmcAddons\plugin.video.sdarot.tv\addon.xml" "C:\Users\Shay\AppData\Roaming\XBMC\addons\plugin.video.sdarot.tv"

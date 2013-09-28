@@ -151,7 +151,7 @@ def gozlan_search_page(url):
     #regexp = '<div class="movie_pic">.*?<img src="(.*?)" width.*?<strong>.*?<h2><a href="(.*?)">(.*?)</a></h2>.*?\s('+derug+': <span>(.*?)</span>)+?'
     regexp = '<div class="movie_pic">.*?<img src="(.*?)" width.*?<strong>.*?<h2><a href="(.*?)">(.*?)</a></h2>.*?'+derug+': <span>(.*?)</span>'
     #class="pagenum"><a href="/search.html?s=%D7%9E%D7%93%D7%95%D7%91%D7%91&p=2">2</a>  
-    next_page_regexp='<a href="(\/search\.html.*?&p='+next_page_no+')">'+next_page_no
+    next_page_regexp='<a href="(\/search\.html[^"]*?&p='+next_page_no+')">'+next_page_no
     matches = re.compile(regexp,re.M+re.I+re.S).findall(page)
     #matches_genres = re.compile('class="c">(.*?)</div>',re.M+re.I+re.S).findall(page)
     summary = ''                

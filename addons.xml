@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.gozlan.me" name="gozlan.me" version="1.2.3" provider-name="cubicle_s">
+<addon id="plugin.video.gozlan.me" name="gozlan.me" version="1.2.4" provider-name="cubicle_s">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>

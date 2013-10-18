@@ -38,7 +38,9 @@ def CATEGORIES():
         iconImage = getImage(img, 'wallaBase')
         if url.startswith('http'):
             elementId = re.compile("http://(.*?)\.").findall(url)
-            addDir('UTF-8', title, url, 1, iconImage, elementId[0])     
+            addDir('UTF-8', title, url, 1, iconImage, elementId[0])
+            print 'url='+url
+            print 'eid='+elementId[0]
         else :
             elementId = url #re.compile("channel/(.*?)/").findall(url)
             addDir('UTF-8', title, 'http://vod.walla.co.il' + url, 1, iconImage, elementId[0])
@@ -75,7 +77,13 @@ except:
         pass
     
 if mode==None or url==None or len(url)<1 or module==None:
-        CATEGORIES()
+        #CATEGORIES()
+        mode=1
+        url = 'http://nickjr.walla.co.il/'
+        module = 'nickjr'
+        name = 'nickjr'
+        manager = getattr(__import__('module_' + module.lower()), 'manager_' + module)()
+        manager.work(mode, url, name, page)
 
 else:
         xbmc.log('in walla %s' % (module), xbmc.LOGDEBUG)

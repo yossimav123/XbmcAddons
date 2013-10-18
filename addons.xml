@@ -20,7 +20,7 @@
         </supportedcontent></extension>
     </addon>
 
-<addon id="plugin.video.wallaNew.video" name="וואלה" version="2.0.4" provider-name="sbentin_s">
+<addon id="plugin.video.wallaNew.video" name="וואלה" version="2.0.5" provider-name="sbentin_s">
     <requires>
         <import addon="xbmc.python" version="2.0"/>
     </requires>

@@ -31,13 +31,13 @@ LIB_PATH = xbmc.translatePath( os.path.join( __PLUGIN_PATH__, 'lib' ) )
 sys.path.append (LIB_PATH)
 
 from gozlancommon import *
-#from t0mm0.common.net import Net
-from gozlanurlresolver import *
+from t0mm0.common.net import Net
+#from gozlanurlresolver import *
 import urlresolver
 
 # Tmp
 #print 'sys.argv[2]' + str(sys.argv[2])
-print 'sys.argv='+str(sys.argv)
+#print 'sys.argv='+str(sys.argv)
 
 params = getParams(sys.argv[2])
 url=None

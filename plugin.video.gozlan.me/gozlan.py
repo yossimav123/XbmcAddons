@@ -153,6 +153,7 @@ def gozlan_search_page(url):
     #class="pagenum"><a href="/search.html?s=%D7%9E%D7%93%D7%95%D7%91%D7%91&p=2">2</a>  
     next_page_regexp='<a href="(\/search\.html[^"]*?&p='+next_page_no+')">'+next_page_no
     matches = re.compile(regexp,re.M+re.I+re.S).findall(page)
+
     #matches_genres = re.compile('class="c">(.*?)</div>',re.M+re.I+re.S).findall(page)
     summary = ''                
     for match in matches:
@@ -161,6 +162,15 @@ def gozlan_search_page(url):
       name=match[2]
       #print "page_link="+page_link+"; name="+name+"; image="+image+"\n"
       addDir(name + " [" + match[3]+"]",page_link,"2&conetnt="+urllib.quote(content)+"&name="+urllib.quote(name)+"&image="+urllib.quote(image),base_domain+"/"+image, '', summary)
+    if (len(matches)<1): # No matches -> maybe new sdarot format
+      regexp = '<div class="movie_pic"><a href="(.*?)"><img src="(.*?)" width.*?alt="(.*?)"/></a>'
+      matches = re.compile(regexp,re.M+re.I+re.S).findall(page)
+      for match in matches:
+        image=match[0]
+        page_link=match[1]
+        name=match[2]
+        #print "page_link="+page_link+"; name="+name+"; image="+image+"\n"
+        addDir(name,page_link,"2&conetnt="+urllib.quote(content)+"&name="+urllib.quote(name)+"&image="+urllib.quote(image),base_domain+"/"+image, '', summary)
     next_page_matches = re.compile(next_page_regexp).findall(page)
     if (len(next_page_matches) > 0):
       next_page_url=base_domain+ su.unescape(next_page_matches[0])

@@ -192,7 +192,7 @@ def gozlan_play_video(url):
     if q > 0:
         media_url = media_url[q:]
     print "Resolving URL: " + media_url
-    videoPlayListUrl = gozlanurlresolver.HostedMediaFile(url=media_url).resolve()
+    videoPlayListUrl = urlresolver.HostedMediaFile(url=media_url).resolve()
     if not videoPlayListUrl:
       print "URL " + media_url + " could not have been resolved to a movie.\n"
       return

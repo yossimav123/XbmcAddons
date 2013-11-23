@@ -33,7 +33,7 @@ sys.path.append (LIB_PATH)
 from gozlancommon import *
 #from t0mm0.common.net import Net
 from gozlanurlresolver import *
-import gozlanurlresolver
+import urlresolver
 
 # Tmp
 #print 'sys.argv[2]' + str(sys.argv[2])
@@ -206,11 +206,10 @@ def gozlan_play_video(url):
     xbmcplugin.setResolvedUrl(handle=int(sys.argv[1]), succeeded=True, listitem=listItem)
 
 def gozlan_video_page(url):
-    name = url
-    print "gozlan_video_page:"+url
+    name = urllib.unquote(url)
+
     if ("name" in params):
-      name=params["name"]
-    name = urllib.unquote(name)
+      name=urllib.unquote(params["name"])
     image=""
     if ("image" in params):
       image=params["image"]
